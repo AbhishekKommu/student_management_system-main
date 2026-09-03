@@ -1,6 +1,5 @@
-from datetime import timezone
-
 from django.db import models
+from django.utils import timezone
 class Department(models.Model):
     name = models.CharField(max_length=100,unique=True)
     code = models.CharField(max_length=10, unique=True)
@@ -35,3 +34,5 @@ class Student(models.Model):
     is_active = models.BooleanField(default=True)
     admitted_no = models.DateField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ['roll_no']
