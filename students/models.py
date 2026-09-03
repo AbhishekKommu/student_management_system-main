@@ -7,9 +7,11 @@ class Department(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=15, unique=True)
+
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='courses',)
-    semester = models.SmallIntegerField(default=1)
-    credits = models.SmallIntegerField(default=1)
+
+    semester = models.PositiveIntegerField(default=1)
+    credits = models.PositiveIntegerField(default=1)
    
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
