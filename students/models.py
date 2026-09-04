@@ -35,7 +35,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15, blank=True)
-    data_of_birth = models.DateField(null=True, blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
     department = models.ForeignKey(Department, on_delete=models.PROTECT, related_name='students',)
     year_of_study = models.PositiveSmallIntegerField(default=1)
