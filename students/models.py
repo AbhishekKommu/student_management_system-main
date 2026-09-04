@@ -16,7 +16,13 @@ class Course(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='courses',)
 
     semester = models.PositiveSmallIntegerField(default=1)
-    credits = models.PositiveSmallIntegerField(default=1)
+    credits = models.PositiveSmallIntegerField(default=3)
+
+    class Meta:
+        ordering = ['semester', 'name']
+    def __str__(self):
+        return self.code + ' - ' + self.name    
+
 
 class Student(models.Model):
     GENDER_CHOICES = [
