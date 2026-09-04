@@ -4,6 +4,10 @@ class Department(models.Model):
     name = models.CharField(max_length=100,unique=True)
     code = models.CharField(max_length=10, unique=True)
     hod_name = models.CharField(max_length=100, blank=True)
+    def __str__(self):
+        return self.code + ' - ' + self.name
+    def student_count(self):
+        return self.students.filter(is_active=True).count()
 
 class Course(models.Model):
     name = models.CharField(max_length=100)
