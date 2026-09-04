@@ -46,3 +46,8 @@ class Student(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering = ['roll_no']
+    def __str__(self):
+        return self.roll_no + ' - ' + self.full_name() 
+    
+    def full_name(self):
+        return self.first_name + ' ' + self.last_name)
