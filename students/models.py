@@ -38,11 +38,11 @@ class Student(models.Model):
     data_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
     department = models.ForeignKey(Department, on_delete=models.PROTECT, related_name='students',)
-    year_of_admission = models.PositiveSmallIntegerField(default=1)
+    year_of_study = models.PositiveSmallIntegerField(default=1)
     address = models.TextField(blank=True)
     photo = models.ImageField(upload_to='student_photos/', blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    admitted_no = models.DateField(default=timezone.now)
+    admitted_on = models.DateField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering = ['roll_no']
