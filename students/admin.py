@@ -14,4 +14,9 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['department', 'year_of_study', 'is_active']
     search_fields = ['roll_no', 'first_name', 'last_name', 'email']
 
+admin.site.register(Department, DepartmentAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Student, StudentAdmin)
+
+
     
